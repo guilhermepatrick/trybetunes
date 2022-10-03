@@ -33,13 +33,13 @@ export default class Login extends Component {
     const { username } = this.state;
     this.setState({ loading: true });
     await createUser({ name: username });
-    this.setState({ loading: false });
-    history.push('/search');
+    this.setState({ loading: false }, () => history.push('/search'));
   };
 
   render() {
     const { isDisable, username, loading } = this.state;
-    const imgSrc = 'https://cdn.icon-icons.com/icons2/1101/PNG/512/1485968501-musicsocialnetworkbrandlogo_78889.png';
+    // const imgSrc = 'https://cdn.icon-icons.com/icons2/1101/PNG/512/1485968501-musicsocialnetworkbrandlogo_78889.png';
+    const imgSrc = 'https://i.imgur.com/tqcAtvl.png';
     return (
       <div className="login" data-testid="page-login">
         <section>
