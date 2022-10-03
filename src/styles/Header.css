@@ -1,0 +1,20 @@
+header {
+  background-color: rgb(126, 147, 233);
+  border-radius: 5px;
+  box-shadow: 5px 5px 5px 5px rgb(159, 163, 180);
+  height: 500px;
+  margin: 0 auto;
+  margin-top: 40px;
+  padding: 10px;
+  padding-top: 50px;
+  text-align: center;
+  width: 500px;
+}
+
+.links {
+  display: flex;
+}
+
+span {
+  margin: 5px;
+}

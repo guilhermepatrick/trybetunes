@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 import { getUser } from '../services/userAPI';
+import '../styles/Header.css';
 import Loading from './Loading';
 
 export default class Header extends Component {
@@ -24,7 +26,11 @@ export default class Header extends Component {
     const { loading } = this.state;
     return (
       <header data-testid="header-component">
-        <h1>Meu Header</h1>
+        <section className="links">
+          <Link data-testid="link-to-search" to="/search">Search</Link>
+          <Link data-testid="link-to-favorites" to="/favorites">Favorites</Link>
+          <Link data-testid="link-to-profile" to="/profile">Profile</Link>
+        </section>
         {loading ? <Loading /> : <h2 data-testid="header-user-name">{username}</h2> }
       </header>
     );
