@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import Header from '../components/Header';
 import MusicCard from '../components/MusicCard';
-import { addSong, getFavoriteSongs } from '../services/favoriteSongsAPI';
+import { addSong, getFavoriteSongs, removeSong } from '../services/favoriteSongsAPI';
 import getMusics from '../services/musicsAPI';
 // import addMusic from '../services/getMusics';
 import Loading from '../components/Loading';
@@ -37,21 +37,26 @@ export default class Album extends Component {
   }
 
   handleFavorite = async ({ target }) => {
+    const { musics, favoritesSongs } = this.state;
+    const selectedID = target.id;
+    const selectedMusic = musics
+      .filter((music) => music.trackId === Number(selectedID));
+    const objMusic = selectedMusic[0];
     if (target.checked) {
       console.log('Adiciona Musica');
       this.setState({ loading: true });
-      const { musics } = this.state;
-      const selectedID = target.id;
-      const selectedMusic = musics
-        .filter((music) => music.trackId === Number(selectedID));
-      const objMusic = selectedMusic[0];
       await addSong(objMusic);
       this.setState((prevState) => ({
         favoritesSongs: [...prevState.favoritesSongs, objMusic],
         loading: false,
       }));
     } else {
-      console.log('Remove Musica');
+      this.setState({ loading: true });
+      await removeSong(objMusic);
+      this.setState({ loading: false,
+        favoritesSongs: favoritesSongs
+          .filter((element) => element.trackId !== objMusic.trackId),
+      });
     }
   };
 
