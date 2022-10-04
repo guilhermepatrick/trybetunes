@@ -34,6 +34,7 @@ export default class Login extends Component {
     const { username } = this.state;
     this.setState({ loading: true });
     await createUser({ name: username });
+    // localStorage.setItem('favorite_songs', JSON.stringify(favoritesSongs));
     this.setState({ loading: false }, () => history.push('/search'));
   };
 

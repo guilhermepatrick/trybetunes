@@ -2,26 +2,8 @@ import React, { Component } from 'react';
 // import { addSong } from './services/musicsAPI.js';
 
 export default class MusicCard extends Component {
-  constructor() {
-    super();
-    this.state = {
-      isChecked: false,
-    };
-  }
-
-  handleChange = () => {
-    const { isChecked } = this.state;
-    if (isChecked) {
-      this.setState({ isChecked: false });
-    } else {
-      console.log('MARCOU');
-      this.setState({ isChecked: true });
-    }
-  };
-
   render() {
-    const { isChecked } = this.state;
-    const { trackName, previewUrl, trackId, handleFavorite } = this.props;
+    const { trackName, previewUrl, trackId, handleFavorite, isChecked } = this.props;
     return (
       <div className="musicCard">
         <h3>{trackName}</h3>
@@ -42,8 +24,7 @@ export default class MusicCard extends Component {
             type="checkbox"
             name="favoriteSong"
             id={ trackId }
-            onChange={ this.handleChange }
-            onClick={ handleFavorite }
+            onChange={ handleFavorite }
             checked={ isChecked }
           />
         </label>
