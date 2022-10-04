@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
+import '../styles/AlbumCard.css';
 
 export default class AlbumCard extends Component {
   render() {
@@ -12,9 +13,9 @@ export default class AlbumCard extends Component {
         <Link
           data-testid={ `link-to-album-${collectionId}` }
           to={ `album/${collectionId}` }
+          params={ collectionId }
         >
           Details
-
         </Link>
       </div>
     );

@@ -1,0 +1,16 @@
+.content {
+  background-color: rgb(126, 147, 233);
+  border-radius: 5px;
+  box-shadow: 5px 5px 5px 5px rgb(159, 163, 180);
+  margin: 0 auto;
+  margin-top: 40px;
+  max-height: 100%;
+  max-width: 90%;
+  padding: 10px;
+  padding-top: 50px;
+  text-align: center;
+}
+
+img {
+  width: 200px;
+}

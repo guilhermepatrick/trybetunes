@@ -20,10 +20,17 @@ input {
   border-radius: 5px;
   box-shadow: 5px 5px 5px 5px rgb(159, 163, 180);
   font-size: 24px;
-  height: fit-content;
+  height: 100%;
   margin: 0 auto;
   margin-top: 40px;
   padding: 10px;
   text-align: center;
-  width: 800px;
+  width: 100%;
+}
+
+.albuns div {
+  display: inline-flex;
+  flex-wrap: wrap;
+  height: 300px;
+  width: 25%;
 }
