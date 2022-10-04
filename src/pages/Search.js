@@ -95,8 +95,7 @@ export default class Search extends Component {
               <AlbumCard
                 key={ actualAlbum.collectionId }
                 artistName={ actualAlbum.artistName }
-                src={ actualAlbum.artworkUrl100 }
-                alt={ actualAlbum.collectionName }
+                artworkUrl100={ actualAlbum.artworkUrl100 }
                 collectionName={ actualAlbum.collectionName }
                 collectionId={ actualAlbum.collectionId }
               />

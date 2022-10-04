@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import Loading from '../components/Loading';
 import { createUser } from '../services/userAPI';
 import '../styles/Login.css';
+import logo from '../styles/logo.png';
 
 export default class Login extends Component {
   constructor() {
@@ -39,7 +40,7 @@ export default class Login extends Component {
   render() {
     const { isDisable, username, loading } = this.state;
     // const imgSrc = 'https://cdn.icon-icons.com/icons2/1101/PNG/512/1485968501-musicsocialnetworkbrandlogo_78889.png';
-    const imgSrc = 'https://i.imgur.com/tqcAtvl.png';
+    // const imgSrc = 'https://i.imgur.com/tqcAtvl.png';
     return (
       <div className="content" data-testid="page-login">
         <section>
@@ -64,7 +65,7 @@ export default class Login extends Component {
         </section>
         {loading ? <Loading /> : <img
           className="imgLogin"
-          src={ imgSrc }
+          src={ logo }
           alt="logoGuizaoTunes"
         />}
       </div>
