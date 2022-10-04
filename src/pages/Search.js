@@ -1,5 +1,8 @@
 import React, { Component } from 'react';
+import AlbumCard from '../components/AlbumCard';
 import Header from '../components/Header';
+import Loading from '../components/Loading';
+import searchAlbumsAPI from '../services/searchAlbumsAPI';
 import '../styles/Search.css';
 
 export default class Search extends Component {
@@ -8,6 +11,10 @@ export default class Search extends Component {
     this.state = {
       isDisable: true,
       artistName: '',
+      prevArtist: '',
+      loading: false,
+      requestAlbuns: [],
+      showAlbuns: false,
     };
   }
 
@@ -27,35 +34,59 @@ export default class Search extends Component {
   };
 
   handleClick = async () => {
-    console.log('Batata');
+    const { artistName } = this.state;
+    this.setState({ loading: true });
+    const requestReturn = await searchAlbumsAPI(artistName);
+    this.setState({ loading: false,
+      showAlbuns: true,
+      requestAlbuns: requestReturn,
+      prevArtist: artistName,
+      artistName: '' }, this.validateButton);
   };
 
   render() {
-    const { isDisable, artistname } = this.state;
+    const { isDisable, artistName, loading,
+      showAlbuns, prevArtist, requestAlbuns } = this.state;
     return (
       <div className="content" data-testid="page-search">
         <Header />
-        <section>
-          <label htmlFor="artistName">
-            <input
-              data-testid="search-artist-input"
-              type="text"
-              name="artistName"
-              id="artistName"
-              placeholder="Nome do Artista"
-              value={ artistname }
-              onChange={ this.handleChange }
+        {loading ? <Loading /> : (
+          <section>
+            <label htmlFor="artistName">
+              <input
+                data-testid="search-artist-input"
+                type="text"
+                name="artistName"
+                id="artistName"
+                placeholder="Nome do Artista"
+                value={ artistName }
+                onChange={ this.handleChange }
+              />
+            </label>
+            <button
+              data-testid="search-artist-button"
+              type="button"
+              disabled={ isDisable }
+              onClick={ this.handleClick }
+            >
+              Pesquisar
+            </button>
+          </section>
+        )}
+        <div className="albuns">
+          {showAlbuns && requestAlbuns.length > 0
+           && <h2>{`Resultado de álbuns de: ${prevArtist}`}</h2>}
+          {requestAlbuns.length > 0 ? requestAlbuns.map((actualAlbum) => (
+            <AlbumCard
+              key={ actualAlbum.collectionId }
+              artistName={ actualAlbum.artistName }
+              src={ actualAlbum.artworkUrl100 }
+              alt={ actualAlbum.collectionName }
+              collectionName={ actualAlbum.collectionName }
+              collectionId={ actualAlbum.collectionId }
             />
-          </label>
-          <button
-            data-testid="search-artist-button"
-            type="button"
-            disabled={ isDisable }
-            onClick={ this.handleClick }
-          >
-            Pesquisar
-          </button>
-        </section>
+          )) : <h2>Nenhum álbum foi encontrado</h2> }
+        </div>
       </div>
     );
   }
