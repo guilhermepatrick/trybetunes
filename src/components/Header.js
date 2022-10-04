@@ -27,11 +27,20 @@ export default class Header extends Component {
     return (
       <header data-testid="header-component">
         <section className="links">
-          <Link data-testid="link-to-search" to="/search">Search</Link>
-          <Link data-testid="link-to-favorites" to="/favorites">Favorites</Link>
-          <Link data-testid="link-to-profile" to="/profile">Profile</Link>
+          <span>
+            <Link data-testid="link-to-search" to="/search">Search</Link>
+          </span>
+          <span>
+            <Link data-testid="link-to-favorites" to="/favorites">Favorites</Link>
+          </span>
+          <span>
+            <Link data-testid="link-to-profile" to="/profile">Profile</Link>
+          </span>
+          <span data-testid="header-user-name">
+            {!loading && username }
+          </span>
         </section>
-        {loading ? <Loading /> : <h2 data-testid="header-user-name">{username}</h2> }
+        {loading && <Loading /> }
       </header>
     );
   }

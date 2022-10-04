@@ -41,7 +41,7 @@ export default class Login extends Component {
     // const imgSrc = 'https://cdn.icon-icons.com/icons2/1101/PNG/512/1485968501-musicsocialnetworkbrandlogo_78889.png';
     const imgSrc = 'https://i.imgur.com/tqcAtvl.png';
     return (
-      <div className="login" data-testid="page-login">
+      <div className="content" data-testid="page-login">
         <section>
           <label htmlFor="username">
             <input
@@ -62,7 +62,11 @@ export default class Login extends Component {
             Entrar
           </button>
         </section>
-        {loading ? <Loading /> : <img src={ imgSrc } alt="logoGuizaoTunes" />}
+        {loading ? <Loading /> : <img
+          className="imgLogin"
+          src={ imgSrc }
+          alt="logoGuizaoTunes"
+        />}
       </div>
     );
   }

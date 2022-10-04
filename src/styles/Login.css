@@ -1,14 +1,14 @@
-.login {
+.content {
   background-color: rgb(126, 147, 233);
   border-radius: 5px;
   box-shadow: 5px 5px 5px 5px rgb(159, 163, 180);
-  height: 500px;
+  height: 600px;
   margin: 0 auto;
   margin-top: 40px;
   padding: 10px;
   padding-top: 50px;
   text-align: center;
-  width: 500px;
+  width: 800px;
 }
 
 button {
@@ -29,7 +29,8 @@ input {
 }
 
 img {
+  margin: 0 auto;
   max-height: fit-content;
-  max-width: 400px;
   text-align: center;
+  width: 500px;
 }

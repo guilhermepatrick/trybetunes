@@ -1,20 +1,19 @@
-header {
-  background-color: rgb(126, 147, 233);
-  border-radius: 5px;
-  box-shadow: 5px 5px 5px 5px rgb(159, 163, 180);
-  height: 500px;
-  margin: 0 auto;
-  margin-top: 40px;
-  padding: 10px;
-  padding-top: 50px;
-  text-align: center;
-  width: 500px;
-}
-
 .links {
+  align-items: center;
   display: flex;
+  height: auto;
+  margin: 0 auto;
+  width: auto;
 }
 
 span {
-  margin: 5px;
+  background-color: rgb(92, 92, 227);
+  height: 40px;
+  margin: 2px;
+  text-align: center;
+  width: 25%;
+}
+
+p {
+  text-align: center;
 }
