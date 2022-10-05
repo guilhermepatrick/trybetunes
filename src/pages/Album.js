@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import Header from '../components/Header';
+import Loading from '../components/Loading';
 import MusicCard from '../components/MusicCard';
 import { addSong, getFavoriteSongs, removeSong } from '../services/favoriteSongsAPI';
 import getMusics from '../services/musicsAPI';
-import Loading from '../components/Loading';
 import '../styles/Album.css';
 
 export default class Album extends Component {
@@ -42,7 +42,6 @@ export default class Album extends Component {
       .filter((music) => music.trackId === Number(selectedID));
     const objMusic = selectedMusic[0];
     if (target.checked) {
-      console.log('Adiciona Musica');
       this.setState({ loading: true });
       await addSong(objMusic);
       this.setState((prevState) => ({
