@@ -45,8 +45,8 @@ export default class ProfileEdit extends Component {
       image,
       description,
     };
-    await updateUser(updateObj);
-    this.setState({ loading: false }, () => history.push('/profile'));
+    await updateUser(updateObj)
+      .then(this.setState({ loading: false }, () => history.push('/profile')));
   };
 
   validateButton = () => {
