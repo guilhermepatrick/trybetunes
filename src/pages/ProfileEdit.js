@@ -26,8 +26,7 @@ export default class ProfileEdit extends Component {
       image: userObj.image,
       description: userObj.description,
       loading: false,
-    });
-    this.validateButton();
+    }, this.validateButton);
   }
 
   handleChange = ({ target }) => {

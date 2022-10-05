@@ -15,11 +15,11 @@ export default class MusicCard extends Component {
           .
         </audio>
         <label
-          htmlFor="favoriteSong"
+          htmlFor={ trackId }
         >
           Favorita
           <input
-            aria-labelledby="Favorita"
+            // aria-labelledby="Favorita"
             data-testid={ `checkbox-music-${trackId}` }
             type="checkbox"
             name="favoriteSong"
