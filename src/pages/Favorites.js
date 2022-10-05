@@ -32,9 +32,7 @@ export default class Favorites extends Component {
       .filter((music) => music.trackId === Number(selectedID));
     const objMusic = selectedMusic[0];
     await removeSong(objMusic);
-    const arrFavoriteSongs = await getFavoriteSongs();
-    this.setState({ favoritesSongs: arrFavoriteSongs,
-      loading: false });
+    this.pegaFavorita();
   };
 
   render() {

@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-// import { addSong } from './services/musicsAPI.js';
 
 export default class MusicCard extends Component {
   render() {
