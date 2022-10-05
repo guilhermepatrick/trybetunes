@@ -3,7 +3,6 @@ import Header from '../components/Header';
 import MusicCard from '../components/MusicCard';
 import { addSong, getFavoriteSongs, removeSong } from '../services/favoriteSongsAPI';
 import getMusics from '../services/musicsAPI';
-// import addMusic from '../services/getMusics';
 import Loading from '../components/Loading';
 import '../styles/Album.css';
 
