@@ -27,6 +27,7 @@ export default class ProfileEdit extends Component {
       description: userObj.description,
       loading: false,
     });
+    this.validateButton();
   }
 
   handleChange = ({ target }) => {
@@ -123,7 +124,7 @@ export default class ProfileEdit extends Component {
               />
             </label>
             <button
-              data-testid="login-submit-button"
+              data-testid="edit-button-save"
               type="button"
               disabled={ isDisable }
               onClick={ this.handleClick }

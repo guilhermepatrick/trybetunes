@@ -9,15 +9,18 @@ export default class Login extends Component {
     super();
     this.state = {
       isDisable: true,
-      username: '',
       loading: false,
+      name: '',
+      email: 'email@test.com',
+      image: 'https://cdn-icons-png.flaticon.com/512/5987/5987462.png',
+      description: 'Teste Description',
     };
   }
 
   validateButton = () => {
-    const { username } = this.state;
+    const { name } = this.state;
     const minLength = 3;
-    if (username.length >= minLength) {
+    if (name.length >= minLength) {
       this.setState({ isDisable: false });
     } else {
       this.setState({ isDisable: true });
@@ -30,28 +33,33 @@ export default class Login extends Component {
   };
 
   handleClick = async () => {
-    const { history } = this.props;
-    const { username } = this.state;
     this.setState({ loading: true });
-    await createUser({ name: username });
-    // localStorage.setItem('favorite_songs', JSON.stringify(favoritesSongs));
+    const { history } = this.props;
+    const { name, email, image, description } = this.state;
+    const updateObj = {
+      name,
+      email,
+      image,
+      description,
+    };
+    await createUser(updateObj);
     this.setState({ loading: false }, () => history.push('/search'));
   };
 
   render() {
-    const { isDisable, username, loading } = this.state;
+    const { isDisable, name, loading } = this.state;
     // const imgSrc = 'https://cdn.icon-icons.com/icons2/1101/PNG/512/1485968501-musicsocialnetworkbrandlogo_78889.png';
     // const imgSrc = 'https://i.imgur.com/tqcAtvl.png';
     return (
       <div className="content" data-testid="page-login">
         <section>
-          <label htmlFor="username">
+          <label htmlFor="name">
             <input
               data-testid="login-name-input"
               type="text"
-              name="username"
-              id="username"
-              value={ username }
+              name="name"
+              id="name"
+              value={ name }
               onChange={ this.handleChange }
             />
           </label>
