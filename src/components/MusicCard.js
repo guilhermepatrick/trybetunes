@@ -19,7 +19,6 @@ export default class MusicCard extends Component {
         >
           Favorita
           <input
-            // aria-labelledby="Favorita"
             data-testid={ `checkbox-music-${trackId}` }
             type="checkbox"
             name="favoriteSong"

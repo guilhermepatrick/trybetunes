@@ -30,7 +30,6 @@ input {
 
 img {
   margin: 0 auto;
-  max-height: fit-content;
   max-width: 500px;
   text-align: center;
 }

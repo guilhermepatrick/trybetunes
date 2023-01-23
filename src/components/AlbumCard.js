@@ -5,7 +5,6 @@ import '../styles/AlbumCard.css';
 export default class AlbumCard extends Component {
   render() {
     const { artistName, artworkUrl100, collectionName, collectionId } = this.props;
-    console.log(artworkUrl100);
     return (
       <div className="albumCard">
         <img src={ artworkUrl100 } alt={ collectionName } />

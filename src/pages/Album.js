@@ -36,7 +36,7 @@ export default class Album extends Component {
   }
 
   handleFavorite = async ({ target }) => {
-    const { musics, favoritesSongs } = this.state;
+    const { musics } = this.state;
     const selectedID = target.id;
     const selectedMusic = musics
       .filter((music) => music.trackId === Number(selectedID));
